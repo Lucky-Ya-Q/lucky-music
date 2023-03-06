@@ -1,0 +1,11 @@
+html, body {
+  background: $color-background;
+  color: $color-text;
+}
+
+a {
+  // 取消下划线
+  text-decoration: none;
+  // 点击不要背景颜色
+  -webkit-tap-highlight-color: transparent;
+}

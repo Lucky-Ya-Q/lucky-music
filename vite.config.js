@@ -13,5 +13,15 @@ export default defineConfig({
   },
   server: {
     host: '0.0.0.0' // 开启内网访问
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import '@/assets/scss/mixin.scss';
+          @import '@/assets/scss/variable.scss';
+        `
+      }
+    }
   }
 })

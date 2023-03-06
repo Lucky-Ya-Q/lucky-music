@@ -1,9 +1,9 @@
 <template>
-  <lm-test></lm-test>
+  <lm-header></lm-header>
 </template>
 
 <script setup>
-import LmTest from '@/components/lm-test.vue'
+import LmHeader from '@/components/header/lm-header.vue'
 </script>
 
 <style scoped lang="scss"></style>
