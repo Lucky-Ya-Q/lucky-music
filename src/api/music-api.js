@@ -4,3 +4,8 @@ import service from '@/api/request'
 export function banner(params) {
   return service.get('/banner', { params })
 }
+
+// 歌单 ( 网友精选碟 )
+export function topPlaylist(params) {
+  return service.get('/top/playlist', { params })
+}

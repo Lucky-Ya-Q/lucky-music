@@ -2,14 +2,25 @@
   <div class="lm-recommend">
     <lm-slide v-if="banners.length" :data="banners"></lm-slide>
     <div class="recommend-list">
-      <h1 class="list-title">热门歌单推荐</h1>
+      <h1 class="list-title" v-if="playlists.length">热门歌单推荐</h1>
+      <ul class="list-content">
+        <li class="item" v-for="item in playlists" :key="item.id">
+          <div class="img">
+            <img :src="item.coverImgUrl" alt="item.coverImgUrl" />
+          </div>
+          <div class="text">
+            <h2 class="name">{{ item.creator.nickname }}</h2>
+            <p class="description">{{ item.name }}</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { banner } from '@/api/music-api'
+import { banner, topPlaylist } from '@/api/music-api'
 import LmSlide from '@/components/base/slide/lm-slide.vue'
 
 const banners = ref([])
@@ -19,13 +30,22 @@ banner({ type: 1 }).then((res) => {
     return item.targetType !== 3000
   })
 })
+
+const playlists = ref([])
+topPlaylist().then((res) => {
+  playlists.value = res.playlists
+})
 </script>
 
 <style scoped lang="scss">
 .lm-recommend {
+  height: calc(100vh - 88px);
+  overflow: hidden;
+
   .lm-slide {
     height: 160px;
   }
+
   .recommend-list {
     .list-title {
       height: 65px;
@@ -33,7 +53,29 @@ banner({ type: 1 }).then((res) => {
       text-align: center;
       font-size: $font-size-medium;
       color: $color-theme;
-      font-weight: normal;
+    }
+
+    .list-content {
+      .item {
+        display: flex;
+        align-items: center;
+        padding: 0 20px 20px 20px;
+        .img {
+          width: 60px;
+          height: 60px;
+        }
+        .text {
+          margin-left: 20px;
+          font-size: $font-size-medium;
+          .name {
+            margin-bottom: 10px;
+            color: $color-text;
+          }
+          .description {
+            color: $color-text-d;
+          }
+        }
+      }
     }
   }
 }

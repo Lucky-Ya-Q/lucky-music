@@ -18,7 +18,6 @@
 
   .title {
     display: inline-block;
-    font-weight: normal;
     color: $color-theme;
     font-size: $font-size-large;
   }
