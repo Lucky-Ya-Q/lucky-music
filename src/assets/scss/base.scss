@@ -1,6 +1,8 @@
 html, body {
   background: $color-background;
   color: $color-text;
+  user-select: none;
+  font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
 }
 
 a {

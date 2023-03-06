@@ -1,7 +1,7 @@
 <template>
   <div class="lm-header">
     <h1 class="title">Lucky Music</h1>
-    <router-link class="user" to="/user">
+    <router-link class="user-center" to="/user-center">
       <i class="iconfont icon-shoucang-"></i>
     </router-link>
   </div>
@@ -23,7 +23,7 @@
     font-size: $font-size-large;
   }
 
-  .user {
+  .user-center {
     position: absolute;
     top: 0;
     right: 0;
