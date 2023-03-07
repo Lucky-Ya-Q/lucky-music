@@ -7,7 +7,7 @@
         <ul class="list-content">
           <li class="item" v-for="item in playlists" :key="item.id">
             <div class="img">
-              <img :src="item.coverImgUrl" alt="item.coverImgUrl" />
+              <img v-lazy="item.coverImgUrl" alt="item.coverImgUrl" />
             </div>
             <div class="text">
               <h2 class="name">{{ item.creator.nickname }}</h2>
