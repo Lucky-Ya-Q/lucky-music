@@ -1,20 +1,22 @@
 <template>
   <div class="lm-recommend">
-    <lm-slide v-if="banners.length" :data="banners"></lm-slide>
-    <div class="recommend-list">
-      <h1 class="list-title" v-if="playlists.length">热门歌单推荐</h1>
-      <ul class="list-content">
-        <li class="item" v-for="item in playlists" :key="item.id">
-          <div class="img">
-            <img :src="item.coverImgUrl" alt="item.coverImgUrl" />
-          </div>
-          <div class="text">
-            <h2 class="name">{{ item.creator.nickname }}</h2>
-            <p class="description">{{ item.name }}</p>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <lm-scroll>
+      <lm-slide v-if="banners.length" :data="banners"></lm-slide>
+      <div class="recommend-list">
+        <h1 class="list-title" v-if="playlists.length">热门歌单推荐</h1>
+        <ul class="list-content">
+          <li class="item" v-for="item in playlists" :key="item.id">
+            <div class="img">
+              <img :src="item.coverImgUrl" alt="item.coverImgUrl" />
+            </div>
+            <div class="text">
+              <h2 class="name">{{ item.creator.nickname }}</h2>
+              <p class="description">{{ item.name }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </lm-scroll>
   </div>
 </template>
 
@@ -22,6 +24,7 @@
 import { ref } from 'vue'
 import { banner, topPlaylist } from '@/api/music-api'
 import LmSlide from '@/components/base/slide/lm-slide.vue'
+import LmScroll from '@/components/base/scroll-yes/lm-scroll.vue'
 
 const banners = ref([])
 banner({ type: 1 }).then((res) => {
