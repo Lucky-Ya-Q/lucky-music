@@ -16,16 +16,14 @@ const loadingDirective = {
 
 function append(el) {
   const style = getComputedStyle(el)
-  if (style.position === 'static') {
-    el.position = el.style.position = 'relative'
+  if ((el.position = style.position) === 'static') {
+    el.style.position = 'relative'
   }
   el.appendChild(el.loading.$el)
 }
 
 function remove(el) {
-  if (el.position) {
-    el.style.position = el.position
-  }
+  el.style.position = el.position
   el.removeChild(el.loading.$el)
 }
 

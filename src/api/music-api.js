@@ -14,3 +14,8 @@ export function topPlaylist(params) {
 export function topArtists(params) {
   return service.get('/top/artists', { params })
 }
+
+// 所有榜单内容摘要
+export function toplistDetail(params) {
+  return service.get('/toplist/detail', { params })
+}

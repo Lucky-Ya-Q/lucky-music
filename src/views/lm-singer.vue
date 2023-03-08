@@ -1,15 +1,22 @@
 <template>
-  <div class="lm-singer">lm-singer</div>
+  <div class="lm-singer" v-loading="loading">
+    <lm-scroll>lm-singer</lm-scroll>
+  </div>
 </template>
 
 <script setup>
 import { topArtists } from '@/api/music-api'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { pinyin } from 'pinyin-pro'
+import LmScroll from '@/components/base/scroll-yes/lm-scroll.vue'
 
 const artists = ref([])
 topArtists().then((res) => {
   artists.value = singerSortByName(res.artists)
+})
+
+const loading = computed(() => {
+  return !artists.value.length
 })
 
 function singerSortByName(singers) {
