@@ -40,7 +40,7 @@ topPlaylist().then((res) => {
 })
 
 const loading = computed(() => {
-  return !(playlists.value.length && playlists.value.length)
+  return !(banners.value.length && playlists.value.length)
 })
 </script>
 

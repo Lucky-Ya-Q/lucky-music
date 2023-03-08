@@ -9,3 +9,8 @@ export function banner(params) {
 export function topPlaylist(params) {
   return service.get('/top/playlist', { params })
 }
+
+// 热门歌手
+export function topArtists(params) {
+  return service.get('/top/artists', { params })
+}
