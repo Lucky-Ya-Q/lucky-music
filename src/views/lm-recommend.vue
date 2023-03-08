@@ -1,5 +1,5 @@
 <template>
-  <div class="lm-recommend">
+  <div class="lm-recommend" v-loading="loading">
     <lm-scroll>
       <lm-slide v-if="banners.length" :data="banners"></lm-slide>
       <div class="recommend-list">
@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { banner, topPlaylist } from '@/api/music-api'
 import LmSlide from '@/components/base/slide/lm-slide.vue'
 import LmScroll from '@/components/base/scroll-yes/lm-scroll.vue'
@@ -37,6 +37,10 @@ banner({ type: 1 }).then((res) => {
 const playlists = ref([])
 topPlaylist().then((res) => {
   playlists.value = res.playlists
+})
+
+const loading = computed(() => {
+  return !(playlists.value.length && playlists.value.length)
 })
 </script>
 

@@ -4,6 +4,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import lazyPlugin from 'vue3-lazy'
+import loadingDirective from '@/components/base/loading-yes/directive'
 
 import './assets/scss/main.scss'
 
@@ -14,5 +15,6 @@ app.use(router)
 app.use(lazyPlugin, {
   loading: 'https://s4.music.126.net/style/web2/img/default/default_album.jpg'
 })
+app.directive('loading', loadingDirective)
 
 app.mount('#app')

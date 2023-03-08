@@ -2,7 +2,9 @@
   <!-- 父容器 -->
   <div class="lm-scroll" ref="scrollRef">
     <!-- 第一个子元素 -->
-    <div><slot></slot></div>
+    <div class="content">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
