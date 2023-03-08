@@ -15,7 +15,12 @@ export function topArtists(params) {
   return service.get('/top/artists', { params })
 }
 
-// 所有榜单内容摘要
-export function toplistDetail(params) {
-  return service.get('/toplist/detail', { params })
+// 所有榜单
+export function toplist(params) {
+  return service.get('/toplist', { params })
+}
+
+// 获取歌单所有歌曲
+export function playlistTrackAll(params) {
+  return service.get('/playlist/track/all', { params })
 }

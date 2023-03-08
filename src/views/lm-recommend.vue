@@ -73,6 +73,7 @@ const loading = computed(() => {
         }
         .text {
           margin-left: 20px;
+          overflow: hidden;
           font-size: $font-size-medium;
           .name {
             margin-bottom: 10px;
@@ -80,6 +81,7 @@ const loading = computed(() => {
           }
           .description {
             color: $color-text-d;
+            @include no-wrap();
           }
         }
       }
