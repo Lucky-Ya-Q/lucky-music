@@ -10,7 +10,10 @@ const loadingDirective = {
     }
   },
   updated(el, binding) {
-    binding.value ? append(el) : remove(el)
+    // 防止开发时相同值多次更新
+    if (binding.value !== binding.oldValue) {
+      binding.value ? append(el) : remove(el)
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="lm-singer" v-loading="loading">
-    <lm-scroll>lm-singer</lm-scroll>
+    <lm-index-list :artists="artists"></lm-index-list>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import { topArtists } from '@/api/music-api'
 import { computed, ref } from 'vue'
 import { pinyin } from 'pinyin-pro'
-import LmScroll from '@/components/base/scroll-yes/lm-scroll.vue'
+import LmIndexList from '@/components/base/index-list/lm-index-list.vue'
 
 const artists = ref([])
 topArtists().then((res) => {
@@ -23,8 +23,9 @@ function singerSortByName(singers) {
   // 简化歌手数据
   const singerList = singers.map((item) => {
     return {
+      id: item.id,
       name: item.name,
-      picUrl: item.picUrl
+      picUrl: item.picUrl + '?param=130y130'
     }
   })
 
